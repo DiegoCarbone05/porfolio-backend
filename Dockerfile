@@ -1,4 +1,9 @@
-FROM openjdk:11
+FROM maven:3.8.3-openjdk-17 AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package -DskipTests
+
+FROM openjdk:17
+COPY --from=build /home/app/target/portfolio-backend.jar /usr/local/lib/portfolio-backend.jar
 EXPOSE 8080
-COPY out/portfolio-backend.jar portfolio-backend.jar
-CMD ["java","-jar","portfolio-backend.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/portfolio-backend.jar"]
