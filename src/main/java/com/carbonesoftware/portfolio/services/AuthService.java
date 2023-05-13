@@ -9,6 +9,5 @@ import java.util.Optional;
 public interface AuthService {
     Optional<User> login(LoginDTO credentials);
     void verifyToken(String token);
-
     Configuration save(Configuration data);
 }

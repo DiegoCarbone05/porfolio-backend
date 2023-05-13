@@ -17,11 +17,7 @@ import java.util.Optional;
 
 @RequestMapping("api/auth")
 @RestController
-@CrossOrigin("*")
 public class AuthController {
-
-//    @Autowired
-//    private AuthService authSvc;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -31,20 +27,6 @@ public class AuthController {
 
     @Autowired
     private JwtUserDetailsService userDetailsService;
-
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody LoginDTO data) {
-//
-//        Optional<User> userOpt = authSvc.login(data);
-//
-//
-//
-//        if (userOpt.isPresent()) {
-//            return ResponseEntity.ok(userOpt.get());
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
 
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginDTO authenticationRequest) throws Exception {

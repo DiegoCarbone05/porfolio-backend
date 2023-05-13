@@ -8,13 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("api/config")
 @RestController
-@CrossOrigin(
-        origins = "*",
-        maxAge = 3600,
-        exposedHeaders = {"Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Authorization"},
-        allowedHeaders = {"Authorization", "Origin"},
-        methods = {RequestMethod.GET, RequestMethod.POST}
-)
 public class ConfigurationController {
 
     @Autowired

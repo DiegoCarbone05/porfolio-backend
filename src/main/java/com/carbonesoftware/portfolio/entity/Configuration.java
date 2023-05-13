@@ -1,8 +1,8 @@
 package com.carbonesoftware.portfolio.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
+
 @Data
 @Entity
 @Table(name = "configurations")
